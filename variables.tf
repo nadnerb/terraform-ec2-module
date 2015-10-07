@@ -1,8 +1,13 @@
 ### MANDATORY ###
 
 variable "name" {
-  description = "Name of the ec2 instance"
-  default = "default"
+  description = "Name of the ec2 instance, defaults to <ec2>"
+  default = "ec2"
+}
+
+variable "role" {
+  description = "Role of the ec2 instance, defaults to <server>"
+  default = "server"
 }
 
 # group our resources
