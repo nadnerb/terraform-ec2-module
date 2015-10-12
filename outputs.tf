@@ -9,4 +9,3 @@ output "public-ips" {
 output "ids" {
   value = "${join(",", aws_instance.ec2.*.id)}"
 }
-}
