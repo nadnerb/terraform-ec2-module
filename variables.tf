@@ -1,18 +1,29 @@
 ### MANDATORY ###
 
 variable "name" {
-  description = "Name of the ec2 instance, defaults to <ec2>"
-  default = "ec2"
+  description = "Name of the ec2 instance, defaults to <EC2>"
+  default = "EC2"
 }
 
-variable "role" {
-  description = "Role of the ec2 instance, defaults to <server>"
-  default = "server"
+variable "role_tag" {
+  description = "Role of the ec2 instance, defaults to <SERVICE>"
+  default = "SERVICE"
+}
+
+variable "environment_tag" {
+  description = "Role of the ec2 instance, defaults to <DEV>"
+  default = "DEV"
+}
+
+variable "costcenter_tag" {
+  description = "Role of the ec2 instance, defaults to <DEV>"
+  default = "DEV"
 }
 
 # group our resources
 variable "stream_tag" {
-  default = "default"
+  description = "Role of the ec2 instance, defaults to <DEFAULT>"
+  default = "DEFAULT"
 }
 
 ###################################################################
