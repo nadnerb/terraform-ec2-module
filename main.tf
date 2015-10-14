@@ -1,5 +1,7 @@
 variable "name" {}
-variable "role" {}
+variable "role_tag" {}
+variable "environment_tag" {}
+variable "costcenter_tag" {}
 variable "ami" {}
 variable "instance_type" {}
 variable "key_name" {}
@@ -37,7 +39,7 @@ resource "aws_instance" "ec2" {
   tags {
     Name = "${var.name}-${count.index+1}"
     ServerRole = "${var.role_tag}"
-    CostCenter = "${var.role_tag}"
+    CostCenter = "${var.costcenter_tag}"
     Environment = "${var.environment_tag}"
     Stream = "${var.stream_tag}"
     consul = "agent"
