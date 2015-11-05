@@ -3,6 +3,7 @@ variable "role_tag" {}
 variable "environment_tag" {}
 variable "costcenter_tag" {}
 variable "ami" {}
+variable "iam_role" {}
 variable "instance_type" {}
 variable "key_name" {}
 variable "key_path" {}
@@ -17,6 +18,7 @@ resource "aws_instance" "ec2" {
   instance_type = "${var.instance_type}"
 
   ami = "${var.ami}"
+  iam_instance_profile = "${var.iam_role}"
   subnet_id = "${var.subnet}"
 
   associate_public_ip_address = "${var.public_ip}"

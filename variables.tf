@@ -54,6 +54,10 @@ variable "ami" {
   }
 }
 
+variable "iam_role" {
+  default = ""
+}
+
 variable "instance_type" {
   default = "t2.micro"
 }
