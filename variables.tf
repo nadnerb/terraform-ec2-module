@@ -5,6 +5,11 @@ variable "name" {
   default = "EC2"
 }
 
+variable "environment" {
+  description = "Name of environment the instance is running in"
+  default = "DEV"
+}
+
 variable "role_tag" {
   description = "Role of the ec2 instance, defaults to <SERVICE>"
   default = "SERVICE"
