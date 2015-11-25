@@ -12,6 +12,8 @@ variable "subnet" {}
 variable "security_groups" {}
 variable "num_nodes" {}
 variable "stream_tag" {}
+variable "volume_name" { default = "/dev/sdh" }
+variable "volume_size" { default = "10" }
 
 resource "aws_instance" "ec2" {
 
@@ -46,6 +48,11 @@ resource "aws_instance" "ec2" {
     ServerRole = "${var.role_tag}"
     "Cost Center" = "${var.costcenter_tag}"
     Environment = "${var.environment_tag}"
+  }
+
+  ebs_block_device {
+    device_name = "${var.volume_name}"
+    volume_size = "${var.volume_size}"
   }
 
 }
