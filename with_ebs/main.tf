@@ -1,9 +1,10 @@
 variable "name" {}
-variable "role_tag" {}
-variable "environment_tag" {}
-variable "costcenter_tag" {}
+variable "environment" { default = "default" }
+variable "role_tag" { default = "default" }
+variable "environment_tag" { default = "default" }
+variable "costcenter_tag" { default = "default" }
 variable "ami" {}
-variable "iam_role" { default="" }
+variable "iam_role" { default = "" }
 variable "instance_type" {}
 variable "key_name" {}
 variable "key_path" {}
@@ -42,9 +43,9 @@ resource "aws_instance" "ec2" {
 
   tags {
     Name = "${var.name}-${count.index+1}"
-    Stream = "${var.stream_tag}"
-    consul = "agent_${var.environment}"
+    consul = "agent-${var.environment}"
     # required for ops reporting
+    Stream = "${var.stream_tag}"
     ServerRole = "${var.role_tag}"
     "Cost Center" = "${var.costcenter_tag}"
     Environment = "${var.environment_tag}"
