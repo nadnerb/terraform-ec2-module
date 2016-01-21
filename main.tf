@@ -25,7 +25,7 @@ resource "aws_instance" "ec2" {
   associate_public_ip_address = "${var.public_ip}"
 
   # Our Security groups
-  security_groups = ["${split(",", replace(var.security_groups, "/,\s?$/", ""))}"]
+  security_groups = ["${split(",", replace(var.security_groups, "/,\\s?$/", ""))}"]
   key_name = "${var.key_name}"
 
   # consul nodes in subnet
